@@ -1,9 +1,8 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.guardhat.sipengine"
         minSdkVersion 25
         targetSdkVersion 26
         versionCode 1
@@ -16,6 +15,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDir new File(projectDir, 'libs')
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+repositories {
+    jcenter()
+    maven {
+        url 'https://maven.google.com'
+    }
 }
 
 dependencies {
@@ -24,5 +42,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile 'com.android.support:support-annotations:27.1.1'
+    implementation 'com.android.support:support-annotations:27.1.1'
+    implementation "com.google.guava:guava:25.0-android"
 }
