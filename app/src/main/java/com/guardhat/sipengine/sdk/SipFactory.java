@@ -12,7 +12,7 @@ import com.guardhat.sipengine.sdk.portsip.PortSipCallConnectionAdapter;
 
 public final class SipFactory {
 
-    static ISipConnector getSipConnector(@NonNull final Context context, @NonNull final String type) {
+    public static ISipConnector getSipConnector(@NonNull final Context context, @NonNull final String type) {
 
         if(type.contains("portsip")) {
             return new PortSipCallConnectionAdapter(context);

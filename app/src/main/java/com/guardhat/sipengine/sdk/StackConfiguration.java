@@ -60,7 +60,7 @@ public final class StackConfiguration {
         return bitrate;
     }
 
-    static StackConfiguration getConfiguration(@NonNull final ImmutableList<Integer> audioCodec,
+    public static StackConfiguration getConfiguration(@NonNull final ImmutableList<Integer> audioCodec,
                                                @NonNull final ImmutableList<Integer> videoCodec,
                                                final int bitrate,
                                                final int height,
